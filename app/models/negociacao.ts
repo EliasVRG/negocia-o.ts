@@ -1,15 +1,16 @@
 export class Negociacao {
-
     constructor(
         private _data: Date, 
-        private quantidade: number, 
-        private valor: number
+        public readonly quantidade: number, 
+        public readonly valor: number
     ) {}
 
     get volume(): number {
         return this.quantidade * this.valor;
     }
+
     get data(): Date {
-        return this._data;
+        const data = new Date(this._data.getTime());
+        return data;
     }
 }
